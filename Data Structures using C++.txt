@@ -1,0 +1,1090 @@
+------------------------------------------------------------Data Structures---------------------------------------------------------------
+
+For a newbie the first question that generally comes to mind is what are Data Structures and how are they different from other data related terms that we have learnt before, so we will address those questions before moving forward.
+
+
+
+
+
+->What is a data structure?
+
+A data structure is not only used for organizing the data. It is also used for processing, retrieving, and storing data. There are different basic and advanced types of data structures that are used in almost every program or software system that has been developed. So we must have good knowledge about data structures. 
+
+Data structures are an integral part of computers used for the arrangement of data in memory. They are essential and responsible for organizing, processing, accessing, and storing data efficiently. But this is not all. Various types of data structures have their own characteristics, features, applications, advantages, and disadvantages. So how do you identify a data structure that is suitable for a particular task? By the end of this you will be able to answer this.
+
+
+
+
+
+
+->What is the need of a data structure?
+
+Need Of Data structure :
+
+The structure of the data and the synthesis of the algorithm are relative to each other. Data presentation must be easy to understand so the developer, as well as the user, can make an efficient implementation of the operation.
+Data structures provide an easy way of organizing, retrieving, managing, and storing data.
+Here is a list of the needs for data.
+
+    Data structure modification is easy. 
+    It requires less time. 
+    Save storage memory space. 
+    Data representation is easy. 
+    Easy access to the large database.
+
+Now before we see some type of data structures let's first of all clarify another important questions-
+
+
+
+
+
+
+
+->What is the difference between data type and data structures?
+
+Data Type 	
+1) The data type is the form of a variable to which a value can be assigned. It defines that the particular variable will assign the values of the given data type only.	 (Members of a data type are the value that data type can take, like members of int data type are ...-3,-2,-1,0,1,2,3... are the values that an int data type can take).
+
+2)It can hold value but not data. Therefore, it is dataless. (Difference between a value and a data is tha value is a singular entity of a defined type, whereas a data can contain multiple values of multiple types).
+	
+3)The implementation of a data type is known as abstract implementation. (because we are just applying tags or labels to values and classifying them as a single set).
+	
+4)There is no time complexity in the case of data types. (When we learn about Digital Circuits we are informed that basic circuit elements like resistors, capacitors, inductors are used to make transitors and diodes which in turn makes logic gates, which are used to implement various logical binary operations on a rudimentary electronic device. Now our computer is also such device, and all are numbers and characters (with the help of the ASCII table) are associated with binary numerals and hence part of these operations. So there is no extra time that is added due to our code to operate on fundamental data types, other than the fundamental operationol time of the digital circuits).
+
+5)In the case of data types, the value of data is not stored because it only represents the type of data that can be stored.	(as we said earlier it's just a label).
+
+6)Data type examples are int, float, double, bool, char etc.	
+
+
+
+Data Structure
+1) Data structure is a collection of different kinds of data. That entire data can be represented using an object and can be used throughout the program.
+
+2)It can hold multiple types of data within a single object.
+
+3)Data structure implementation is known as concrete implementation.
+
+4)In data structure objects, time complexity plays an important role.
+
+5)While in the case of data structures, the data and its value acquire the space in the computer’s main memory. Also, a data structure can hold different kinds and types of data within one single object.
+
+6)Data structure examples are stack, queue, tree, etc.
+
+
+
+
+
+->What are different type of Data Structures?
+
+1)Linear data structure: Data structure in which data elements are arranged sequentially or linearly, where each element is attached to its previous and next adjacent elements, is called a linear data structure. 
+
+Examples of linear data structures are array, stack, queue, linked list, etc.
+
+#)Static data structure: Static data structure has a fixed memory size. It is easier to access the elements in a static data structure. An example of this data structure is an array.
+
+#)Dynamic data structure: In dynamic data structure, the size is not fixed. It can be randomly updated during the runtime which may be considered efficient concerning the memory (space) complexity of the code. Examples of this data structure are queue, stack, etc.
+    
+
+2)Non-linear data structure: Data structures where data elements are not placed sequentially or linearly are called non-linear data structures. In a non-linear data structure, we can’t traverse all the elements in a single run only. Examples of non-linear data structures are trees and graphs.
+
+
+
+
+
+->What are some of the important Data Structures?
+
+Let's just get a basic peek into the most famous existing data structures, even if you don't understand some part it's completely fine. We will understand more about these when we we used them in implementation.
+
+Below is an overview of some popular data structures: 
+
+1. Array: An array is a collection of data items stored at contiguous memory locations. The idea is to store multiple items of the same type together. This makes it easier to calculate the position of each element by simply adding an offset to a base value, i.e., the memory location of the first element of the array (generally denoted by the name of the array). 
+
+
+2. Linked Lists: Like arrays, Linked List is a linear data structure. Unlike arrays, linked list elements are not stored at a contiguous location; the elements are linked using pointers. 
+
+
+3.Stack: Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out). In stack, all insertion and deletion are permitted at only one end of the list.
+
+Mainly the following three basic operations are performed in the stack: 
+
+    Initialize: Make a stack empty.
+    Push: Adds an item in the stack. If the stack is full, then it is said to be an Overflow condition.
+    Pop: Removes an item from the stack. The items are popped in the reversed order in which they are pushed. If the stack is empty, then                         //       it is said to be an Underflow condition.
+    Peek or Top: Returns top element of the stack.
+    isEmpty: Returns true if the stack is empty, else false.
+
+
+4. Queue: Like Stack, Queue is a linear structure which follows a particular order in which the operations are performed. The order is First In First Out (FIFO). In the queue, items are inserted at one end and deleted from the other end. A good example of the queue is any queue of consumers for a resource where the consumer that came first is served first. The difference between stacks and queues is in removing. In a stack we remove the item the most recently added; in a queue, we remove the item the least recently added. 
+
+ 
+
+Mainly the following four basic operations are performed on queue: 
+
+ 
+
+    Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an Overflow condition.
+    Dequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. If the queue is empty, then  //           it is said to be an Underflow condition.
+    Front: Get the front item from the queue.
+    Rear: Get the last item from the queue.
+
+
+5. Binary Tree: Unlike Arrays, Linked Lists, Stack and queues, which are linear data structures, trees are hierarchical data structures. A binary tree is a tree data structure in which each node has at most two children, which are referred to as the left child and the right child. It is implemented mainly using Links. 
+
+A Binary Tree is represented by a pointer to the topmost node in the tree. If the tree is empty, then the value of root is NULL. A Binary Tree node contains the following parts. 
+ 
+
+1. Data
+2. Pointer to left child
+3. Pointer to the right child
+
+
+
+6.  Binary Search Tree: A Binary Search Tree is a Binary Tree following the additional properties: 
+ 
+
+    The left part of the root node contains keys less than the root node key.
+    The right part of the root node contains keys greater than the root node key.
+    There is no duplicate key present in the binary tree.
+
+      A Binary tree having the following properties is known as Binary search tree (BST).
+
+
+
+7. Heap: A Heap is a special Tree-based data structure in which the tree is a complete binary tree. Generally, Heaps can be of two types: 
+ 
+    Max-Heap: In a Max-Heap the key present at the root node must be greatest among the keys present at all of its children. The same property must be recursively true for all sub-trees in that Binary Tree.
+    Min-Heap: In a Min-Heap the key present at the root node must be minimum among the keys present at all of its children. The same property must be recursively true for all sub-trees in that Binary Tree.
+
+
+8. Hashing Data Structure: Hashing is an important Data Structure which is designed to use a special function called the Hash function which is used to map a given value with a particular key for faster access of elements. The efficiency of mapping depends on the efficiency of the hash function used. 
+
+Let a hash function H(x) maps the value x at the index x%10 in an Array. For example, if the list of values is [11, 12, 13, 14, 15] it will be stored at positions {1, 2, 3, 4, 5} in the array or Hash table respectively. 
+
+
+9. Matrix: A matrix represents a collection of numbers arranged in an order of rows and columns. It is necessary to enclose the elements of a matrix in parentheses or brackets. 
+
+A matrix with 9 elements is shown below. 
+
+
+10. Trie: Trie is an efficient information reTrieval data structure. Using Trie, search complexities can be brought to an optimal limit (key length). If we store keys in the binary search tree, a well-balanced BST will need time proportional to M * log N, where M is maximum string length and N is the number of keys in the tree. Using Trie, we can search the key in O(M) time. However, the penalty is on Trie storage requirements. 
+
+
+
+
+
+->What are Abstract Data Types?
+
+let us consider different in-built data types that are provided to us. Data types such as int, float, double, long, etc. are considered to be in-built data types and we can perform basic operations with them such as addition, subtraction, division, multiplication, etc. Now there might be a situation when we need operations for our user-defined data type which have to be defined. These operations can be defined only as and when we require them. So, in order to simplify the process of solving problems, we can create data structures along with their operations, and such data structures that are not in-built are known as Abstract Data Type (ADT).
+
+So these user defined Data Types is similar to the analogy we learnt in classes. These Abstract data types are sometimes used to store data themselves, so they are also kind of a data structure which are built with the help of existing data structures, like list ADT is implemented with the help of Linked list data structure.
+
+The user of data type does not need to know how that data type is implemented, for example, we have been using Primitive values like int, float, char data types only with the knowledge that these data type can operate and be performed on without any idea of how they are implemented. 
+
+So a user only needs to know what a data type can do, but not how it will be implemented. Think of ADT as a black box which hides the inner structure and design of the data type. Now we’ll define three ADTs namely List ADT, Stack ADT, Queue ADT.
+
+    List ADT
+        The data is generally stored in key sequence in a list which has a head structure consisting of count, pointers and address of compare function needed to compare the data in the list.
+        The data node contains the pointer to a data structure and a self-referential pointer which points to the next node in the list.
+        The List ADT Functions is given below:
+        get() – Return an element from the list at any given position.
+        insert() – Insert an element at any position of the list.
+        remove() – Remove the first occurrence of any element from a non-empty list.
+        removeAt() – Remove the element at a specified location from a non-empty list.
+        replace() – Replace an element at any position by another element.
+        size() – Return the number of elements in the list.
+        isEmpty() – Return true if the list is empty, otherwise return false.
+        isFull() – Return true if the list is full, otherwise return false.
+    Stack ADT
+        In Stack ADT Implementation instead of data being stored in each node, the pointer to data is stored.
+        The program allocates memory for the data and address is passed to the stack ADT.
+        The head node and the data nodes are encapsulated in the ADT. The calling function can only see the pointer to the stack.
+        The stack head structure also contains a pointer to top and count of number of entries currently in stack.
+        push() – Insert an element at one end of the stack called top.
+        pop() – Remove and return the element at the top of the stack, if it is not empty.
+        peek() – Return the element at the top of the stack without removing it, if the stack is not empty.
+        size() – Return the number of elements in the stack.
+        isEmpty() – Return true if the stack is empty, otherwise return false.
+        isFull() – Return true if the stack is full, otherwise return false.
+    Queue ADT
+        The queue abstract data type (ADT) follows the basic design of the stack abstract data type.
+        Each node contains a void pointer to the data and the link pointer to the next element in the queue. The program’s responsibility is to allocate memory for storing the data.
+        enqueue() – Insert an element at the end of the queue.
+        dequeue() – Remove and return the first element of the queue, if the queue is not empty.
+        peek() – Return the element of the queue without removing it, if the queue is not empty.
+        size() – Return the number of elements in the queue.
+        isEmpty() – Return true if the queue is empty, otherwise return false.
+        isFull() – Return true if the queue is full, otherwise return false.
+
+
+Features of ADT:
+
+    Abstraction: The user does not need to know the implementation of the data structure.
+    Better Conceptualization: ADT gives us a better conceptualization of the real world.
+    Robust: The program is robust and has the ability to catch errors.
+
+
+So the whole point of Abstract Data Types providing the user with new data types and data structures, which can perform certain operations, when data or values are stroed in them, which makes the code more efficient. And all this can be done without even user knowing what is being done in the backend, i.e. user only needs to know how to use and implement the Abstract Data Type without even knowing the implementation of the ADT with the help of other Data Structures and Data Types. Like eating the food without knowing its recipe.
+
+So ADT is just an idea about what a new data structure should look like, but is implemented with the help of existing ones.
+
+
+NOTE: First of all remove the misconception that list and array are the same thing, they are not.
+
+
+
+
+
+-->LINKED LISTS
+
+Linked Lists are of multiple types, let's begin with the very basic ones.
+
+1) Basic
+The structure of basic linked list is that it's made up of multiple nodes. (each node can be visualised as a rectangle divided into two parts, first part contains the value that the node stroes and the second one contains the pointer to the next node). So linked list structure can be visualised as the network of nodes. Linked list has a head pointer which points to the first node in the list, and the first node's pointer points to the second node in the list, and second one's pointer points to the third one and so on. and the last node of the list will have nothing to point to so it will point to null.
+
+Functions--
+So the functions that can be performed on a linked list are--
+
+a) addFront -- We add a node to the front of the linked list.
+Implementation-- So what we need to do is we will create a new node, and it will store the value which needs to be added to the front of the list. Once this new node is created our head pointer of the linked list now should point to this node, as this new node is now the front of our list. And the next pointer of our newly created node should point to the node which was previously the first node of the list and now becomes the second one.(how will one get the pointer of this old first node. Well, head would initially be pointing to that node. So make use of the old value of head before making the head point to this new node).
+
+b) addback --We add a node to the back of the list.
+Implementation--So what we need to do here is that first we need to find the node which is the end of the list, i.e. the node which has its next pointer as NULL. So how do we will do this. We will first iterate through the whole list till we reach the pointer which has the next pointer as NULL, then create the new node which needs to be added. Then make the pointer of last node of the list point to this node and set the po--inter of this new node which has now become the last node of the list to be NULL. 
+
+c) length --To find the number of nodes in the linked list or in other words its length.
+Implementation --Intiailise a global property of linked list as size and whenever a new node is added using addfront or addback property of the list increase the size by 1 and if a node is removed, decrease the size by 1.
+
+d) search--To search if a particular element exists in the list.
+Implement-- Start with the head pointer, iterate through the whole list and compare the value stored in the node to the value you are looking for each step. You will know u have reached the end of the node when u encounter the next pointer to be NULL>
+
+e) removeBack-- To remove the last element of the list 
+Implementation-- We need to find the last node, which can be found by iterating through the list and finding the node whose next pointer points to NULL. Now what needs to be done is that the node before this last node that is the second last node should now point to NULL because it will become the last Node and we would free the memory held by this old last node (it would still work if we just change the pointer of second last node to null, because nothing would ever point to this last node anymore so it would be list in the hay of memory and would be like it never existed, but freeing the memory is better practice). But how will we know which is the second node, because in our this linked list, there is no property of node which shows what was its previous node, there is only one pointer which points to the next node, so again iterate through the whole list and stop when you encounter a node whose next node's point to NULL (understand what we said, we are not saying this node points to NULL, the node to which this node is pointing to points to null, which means this node is second last one).
+
+f) removeFront-- Remove the front of the list.
+Implementation-- So now the second element of the list becomes the first element. So make the head pointer points to the second node in the list. and free the node to which head pointer was pointing earlier (becasue that was the old first node). How to get the second node? well it would be the node to which your first node would be pointing to before getting freed. 
+
+g)printList-- Prints the entire list.
+Implementation-- Start with the head pointer and iterate through the whole list, printing the value stored in each node until the end of the list is reached.
+
+f)isEmpty-- Checks if the list is empty or not.
+Implementation-- If the length of linked list is 0 then the list is empty
+
+
+
+CODE--
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int size=0;
+
+class Node{        
+//first of all we created the node class which will fulfil and hold all the characterstic that is expected of a Node in a linked list. i.e. it will have value and pointer pointing to the next node
+
+    private:       
+//these are specified as private because the user will actually interact with the linked list class, this class is just for the internal functioning of linked list so user don't need to access these properties of node.
+
+        int value;
+        Node* next;
+    public:
+        Node(int element, Node* ptr){
+            size++;
+            value=element;
+            next=ptr;
+        }
+        Node(int element){  //so whenever a new node is created the size of list is increased by one because a node would only be created when it is to be added to the list. 
+            size++;
+            value=element;
+            next=NULL;
+        }
+    friend class Linked_list;  //friend class allows the class specified as friend to access even the private values of this class
+};
+
+
+class Linked_list{
+    private:
+        Node* head; //Linked list has only one property and that is a pointer, and this pointer helps to create an entire network of nodes connected to one another.
+  
+ //and head is pointer because for user linked list is essentially an array type thingee but we know the truth that it is only a pointer forming network of nodes.So user dont' need to understand this in order to access it properly.
+
+   public:
+       void addFront(int element);
+       void addBack(int element);
+       int length();
+       int search(int element);
+       void printList();
+       void removeFront();
+       void removeBack();
+       int isEmpty();
+
+
+       Linked_list(){
+        head=NULL;
+       } //initially when the linked list is created the head pointer should point to null as when list is created there is no first pointer.
+
+};
+    int Linked_list:: isEmpty(){
+        if(head==NULL){return 1;}
+        return 0;
+    }
+
+
+
+    void Linked_list::addFront(int element){
+        Node* n1=new Node(element);
+        n1->next=head;
+        head = n1;
+    }
+
+    int Linked_list::length(){
+        return size;
+    }
+
+    void Linked_list::printList(){
+        Node* iter=head;
+        do{
+            printf("%d\n",iter->value);
+            iter=iter->next;
+        }while(iter!=NULL);
+    }
+
+    void Linked_list::addBack(int element){
+        Node* iter=head;
+
+        //Node* n2=new Node(element);   //this is not specified here but is specified at a later step because if the list isempty then we are going to be adding by the addfront function so size of the list would be increased when we created this node and then it would also be increased when we would use addfront function. so even though only a single node is added size would be increased by two. Because of constructor of Node is specified like this that the size is increased when node is created rather than when node is actually added. There if once we are sure the list is not empty only then we create a new node and add it or else we let the add front handle it.
+
+        if(this->isEmpty()==1){
+            addFront(element);//when there is no element in the list it is the same thing to add from front or to add from back.
+        }
+        else{
+        while(iter!=NULL){
+            if(iter->next==NULL){
+                break;
+            }else{
+                iter=iter->next;
+            }
+        }
+        Node* n2=new Node(element);
+        iter->next=n2;
+
+        }
+
+    }
+
+    int Linked_list::search(int element){
+        Node* iter=head;
+        while(iter!=NULL){
+            if(iter->value==element){
+                return 1;
+            }else{
+                iter=iter->next;
+            }
+        }
+        return 0;
+
+    }
+
+    void Linked_list::removeFront(){
+        Node* iter=head->next;
+        free(head);
+        head=iter;
+    }
+
+    void Linked_list::removeBack(){
+        Node* iter=head;
+        while(iter!=NULL){
+            if((iter->next)->next==NULL){
+                break;
+            }else{
+                iter=iter->next;
+            }
+        }
+        free(iter->next);
+        iter->next=NULL;
+
+    }
+
+int main(){
+
+
+    Linked_list* list1=new Linked_list;
+
+    
+    list1->addBack(300);
+    list1->addBack(400);
+
+
+    list1->printList();
+    printf("\n");
+    list1->removeBack();
+
+    list1->printList();
+
+    
+    
+    return 0;
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+2)Linked List with Tail
+
+So now one can see in order to find the last node one has to iterate through the entire list to get it, so instead what we can do is that we can add a tail pointer as property of the linked list. And this tail pointer always points to the last element of the linked list. So only the implementation of add back and remvoe back function will change. 
+
+When a new back node is added the tail should begin point to this new node, and the node to which tail node was pointing earlier should now point to this node. and this node should now point to NULL as there is nothing after it.
+
+NOTE: tail and head pointers are not next pointer of some node, they are simply pointer to an objects of node class. They are simply pointers.
+
+And for remove front the tail should point to second last element and previous last node should be freed and the pointer of this second last node should now be made null as it is the last node now.  But to find the second last node u still need to iterate through the entire node like we did in basic case to find second last node.
+
+
+
+3)Doubly Linked List.
+
+So we can still see to find the second last node or essentially previous node of any node we need to iterate throught the entire list. So to make it more efficient what we do is that we give another property to the nodes of linked list, earlier nodes only had one pointer to point to the next node in the list, but now it will also have a previous pointer to point to the previous node (i.e. the node that comes before it in the list)  (So now node can be visualised as a rectangular box with three compartments, one holds the previous pointer which points to the previous element in the list then another comaprtment holds the value of the node and finally the last comparment holds the next pointer of the node) 
+
+In a doubly linked list the previous pointer of the head node or the first node in the list is NULL because there is nothing before head node. and next pointer of last node is still NULL.
+Implementation of functions would mostly be similar just the hunt for previous node in the second last node in remove back would become easier. 
+CODE--
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int size=0;
+
+class Node{
+    private:
+        int value;
+        Node* next;
+        Node* prev;
+    public:
+        Node(int element, Node* ptr){
+            size++;
+            value=element;
+            next=ptr;
+        }
+        Node(int element){
+            size++;
+            value=element;
+            next=NULL;
+        }
+    friend class Linked_list;
+};
+
+class Linked_list{
+    private:
+        Node* head; 
+        Node* tail;
+    public:
+       void addFront(int element);
+       void addBack(int element);
+       int length();
+       int search(int element);
+       void printList();
+       void removeFront();
+       void removeBack();
+       int isEmpty();
+
+
+       Linked_list();
+
+};
+
+    Linked_list::Linked_list(){
+        
+        head=NULL;
+        tail=NULL;
+       
+    }
+
+    void Linked_list::addFront(int element){
+        Node* n1=new Node(element);
+        n1->next=head;
+        n1->prev=NULL;
+        if(size==1){tail=n1;}
+        head = n1;
+    }
+
+    int Linked_list::length(){
+        return size;
+    }
+
+    void Linked_list::printList(){
+        Node* iter=head;
+        do{
+            printf("%d ",iter->value);
+            iter=iter->next;
+        }while(iter!=NULL);
+        printf("\n");
+    }
+
+    int Linked_list:: isEmpty(){
+        if(head==NULL){return 1;}
+        return 0;
+    }
+
+    void Linked_list::addBack(int element){
+        //Node* n2=new Node(element);
+        if(this->isEmpty()==1){
+           addFront(element);
+        } else {
+            Node* n2=new Node(element);
+  
+//we cannot write it earlier because if the list is empty and the node n2 would be created before and size would become 1 but if the list was empty then it would go to addfront function(and n2 would not be used at all as its used in only addback) where it will create another node n1 and size would become 2 (because my size is increased in constructotr of node), which is not the case because we never used n2 we are still adding the first element. And due to size 2 the size==1 condition would never be met in the addfront condition and hence adding the first element using addback would throw an error overall
+
+            tail->next=n2;
+            n2->prev=tail;
+            tail=n2;
+        }
+
+    }
+
+    int Linked_list::search(int element){
+        Node* iter=head;
+        while(iter!=NULL){
+            if(iter->value==element){
+                return 1;
+            }else{
+                iter=iter->next;
+            }
+        }
+        return 0;
+
+    }
+
+    void Linked_list::removeFront(){
+        Node* iter=head->next;
+        free(head);
+        head=iter;
+        iter->prev=NULL;
+        size--;
+    }
+
+    void Linked_list::removeBack(){
+        Node* iter=tail->prev;
+        free(tail);
+        iter->next=NULL;
+        tail=iter;
+        size--;
+    }
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->Stack 
+
+Stack is like a bunch of things placed over one another and it follows the LIFO (last in first out principle). What is meant by this is that look at bunch of books on your table, they are stacked upon one another, and the only book you can fetch without hurting other things is the top most book, and obviously the book placed on top would be last one to be placed on the stack, as you can't simply place a book in the middle of the stack.
+
+So structure of a stack is that, it can be implemented using both linked list and array but we will make use of linked list as it's more efficient, and to be precise we are using DOubly Linked List). The reasonw ould come later. So this linked list would only be able to add an element to the end of the linked list and remove this last element. And these are the only two functions stack can perform i.e. either you can place a book on top of the book or remove it. You cannot touch other parts of the stack. Only accessible part is the top element.
+
+Functions--
+
+a) Push --To add an element to the top of the stack.
+Implementation-- A simple addback function of the list will do the work.
+
+b)Pop --To remove the last element of the stack.
+Implementation-- A simple removeback function of list would do the work and then the second last placed element in the stack becomes the last element of the stack.
+
+
+CODE--
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include<stdio.h>
+#include<stdlib.h>
+#include"Doubly_linked_list.h"    
+
+ //We would include the header file of the doubly linked list code in order to be able to access it here and inorder to use linked list in header file u also need to specify that stack is friend class of linked list in order to access its values.
+
+
+class Stack{
+    private:
+       Linked_list lst; 
+
+//so Stack uses linked list, and if we would have directly used linked list then it would be a problem, because linked list has other functions too which are not part of the Stack, so we create a stack class and each stack will have its own linked list, and as user would be interacting with only the stack class, so only the functions defined in stack class (the modified functions of the linked list class) would be accessable to the user
+
+    public: 
+       int pop();
+       void push(int x);
+       void printStack();
+       int isEmpty();
+};
+
+int Stack::isEmpty(){
+    if(lst.head==NULL){return 1;}
+    return 0;
+}
+int Stack::pop(){
+   Node* ptr=lst.tail;
+   int x = ptr->value; 
+
+//we cannot simply fetch the "value" because its private in Node and its friend class is linked list and not stack and lst.tail->value doesn't make it look like its being accessed via Linkedlist it is still accessed through Node and hence will throw an error so a way to fetch this is by writing friend class Stack in the Node
+
+   lst.removeBack();
+   return x;
+
+}
+
+void Stack::push(int x){
+    lst.addBack(x);
+}
+
+void Stack:: printStack(){
+    lst.printList();
+    
+}
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+We use Linked list instead of an array, because every time an elemnt is added the size of array needs to be reallocated and therefore every time os has to look for a chunk of memory to hold the previous as well as the new entry of the list.
+
+But when we use linked list, the os only need to look for memory to hold a node, because then we can connect this node to the whole list with help of pointers without reallcoating the whole list.
+
+
+Application of Stacks-
+-- https://youtu.be/YJJhOhJ_ukA
+-- https://youtu.be/D4SjiXxkyNw
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->Queue
+
+
+Queue is same as waiting lines at stations, movie halls and all that it follows the FIFO principle (First in First Out), because obviously the first person standing the queue is served first. Again implemented using Linked List.
+
+Again a person can only join at the end of the queue(add Back only), this is called as enquing. And can only be removed from the front of the queue(remove Front), this is called as dequing.
+
+
+CODE--
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include<stdio.h>
+#include<stdlib.h>
+#include"Doubly_linked_list.h"
+
+
+class Queue{
+private:
+    Linked_list lst;
+public:
+    void enqueue(int element);
+    void dequeue();
+    int isEmpty();
+    int first();  //gives the node infront of the queue.
+    void printQueue();
+
+};
+
+int Queue::isEmpty(){
+    if(lst.head==NULL){return 1;}
+    return 0;    
+}
+
+void Queue::enqueue(int element){
+    lst.addBack(element);
+}
+
+void Queue:: dequeue(){
+    lst.removeFront();
+
+}
+
+int Queue:: first(){
+
+    int x=lst.head->value;
+    return x;
+}
+
+void Queue::printQueue(){
+    lst.printList();
+}
+
+int main(){
+
+    Queue q;
+    q.enqueue(10);
+    q.printQueue();
+
+    q.enqueue(20);
+    q.printQueue();
+
+    q.enqueue(30);
+    q.printQueue();
+
+    q.dequeue();
+    q.printQueue();
+    return 0;
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->Tree
+
+Almost everyone is familiar with tree and must have encountered them atleast once in their life. Tree is same as family tree. It is essentially used to maintain herirarchies and that sort of stuff. 
+
+Structure- Overall There are many type of trees but the basic structure of all the trees are similar it is very similar to a linked list and there are two ways to implement it using a linked list or without using it. But it is essentially a network of nodes but in a heirarchal manner. There is a root or the head node, and it is connected to all its children nodes, and all these children nodes have their own children nodes (to which the earlier children nodes become parent node). The children of the children are descendants of the root node, whereas parent of the parent nodes are ancestors of all children nodes.
+
+Now there can be any number of children to any given node. So now this where the implementation comes into place. When implementing with Linked List we would make all children as part of the linked list. So essentially each node would have a linked list associatd with it which will contain all its children. 
+
+Or the other way is that(the one we created below) is that we create TreeNodes (like Linked List had its own nodes, we will have seperate ones too, they will consist of three comparments, one is the parent pointer, second if the children pointer and third is the value stored in the node) and children pointer of each tree node will point to its children and parent towards its parent node.
+
+Yes we know Linked List are more efficients than array, but still its good practice to know how to implement with arrays.
+
+Terminologies of Tree DS-- https://youtu.be/nwtg2f0kCKQ
+                        -- https://youtu.be/yvX95FAipL4
+
+
+1) Binary Tree
+
+In this the number of children are only two and hence are much easier to implement as compared to the simple tree where there can be any number of childrens.
+
+Structure-- the structure is same as the one specified above, but with small change, since there are only two children we don't use array here instead what we do is that we divide the tree node into four componenets. One points to parent, other is the value, the third one points to the left child and the final one to the right child. 
+
+Functions--
+
+The functions that are implemented for the linked list are the following. 
+
+a) addChild- This is to add a child to any particular parent. 
+So what will happen is that addchild is implemented in two ways by overloading the function. That is the function is called with only the value that is to be added to the tree as parameteer when we are adding a root, whereas it is called with the value to be added and the parent to which this node would be added as child if we are adding a child to node. 
+The implementation is easy as it is, using different searching techniques, we will find the node to which the new node is to be added as child. Once we got the node, we will then check which of its children slot is empty that is whether its left child is empty or right child is empty, then we will add it to the empty slot. if none of the slots is empty that means the node already have two children and in this case we return an error. 
+
+b)height- To calculate the height of a particular node 
+Implementation is easy, but understand that this would be a recursive implementation as height of a node, is 1+(height of the node of its child), so what we will do is give two recursive calls for both of its children (provided that both exist, so we need to also check if the child pointer is not NULL before giving the recursive call) and so on it will go till the base case, i.e. till it reaches a leaf (the node which doesn't have any children) which has the height of 0. Once we know the height of both of its children then we take the max of the two and add one to it.
+
+c)depth - to calculate the depth of the particular node
+Again implementation is quite similar to height, only here the recursive calls would be of form depth of a node = depth(parent)+1. And here we don't need to check for null as if a child exists then the parent has to exist, and here the base case would be of the root node which has the depth of 0.
+
+d)Search or Traversals or Print- There are many way to search for a particular node in the whole tree and refer to this video --https://youtu.be/VpyAFOUFAXA
+                                                                                                                              --https://youtu.be/BiONtA9tge0
+In the videos the methods are used to visit each node and just printed their values so instead of printing we can also visit all the nodes and compare the values to our required value and find the node which contains the value and return the pointer to that node. 
+
+CODE--
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+
+//Assuming all elements are distinct in the tree i.e. no two nodes have the same value.
+
+class TreeNode{
+   public:
+        int element;
+        TreeNode* head;
+        TreeNode* left;
+        TreeNode* right;
+        TreeNode();
+        TreeNode(int value);
+   
+   friend class Tree;
+
+};
+//
+TreeNode::TreeNode(){      //this constructor is made to initialise all pointers of the node to null, so that the pointers don't store any garbage values.
+    head=NULL;
+    left=NULL;
+    right=NULL;
+}
+//
+TreeNode::TreeNode(int value){   //this also makes the pointer null but in this case the value i.e. to be stored in the node is also given to us, so we also simultaneously add the value
+    head=NULL;
+    left=NULL;
+    right=NULL;
+    element=value;
+
+}
+//
+
+
+
+
+
+class Tree{
+   
+   public:
+      TreeNode* root;   
+//so as always tree is similar to linked list it only has one thing of its own that is the pointer that will point to the root or the head node of the tree and rest is just a network o nodes
+
+      Tree();
+      void addChild(int value, int pos);
+      void addChild(int value);
+      int height(TreeNode* ptr);
+      int depth(TreeNode* ptr);
+
+      TreeNode* preorderTraversal(TreeNode* ptr, int pos);   
+
+//here we will search using preorder traversal technique and instead of printing the value we are makiing it look for wheter the node containing value "pos" exists in the tree or not and if it does then we will make it return it pointer, the TreeNode* ptr parameter is just to tell from which node it should start searching by default the first search would always begin with the root node, but we are going to give it recursive calls so we need to change the starting node over there.  
+
+      void PrintTree(TreeNode* ptr);  //here we will simply use the preorder traversal to print the entire list. 
+   
+};
+
+
+
+Tree:: Tree(){
+    root = NULL;
+}
+
+
+
+TreeNode* Tree:: preorderTraversal(TreeNode* ptr, int pos){ 
+     if(ptr==NULL){return NULL;}            //so if the pointer we start searching from is NULL there is nothing to look forward to so we simply return with a NULL pointer to the previous call
+     if(pos==ptr->element){return ptr;}     //if we get the value then we need to return the pointer of the node ar which we got the value.
+
+     if(ptr->left==NULL && ptr->right==NULL && ptr->element==pos){  
+//this case is to check the leaves which don't have any child of their own and if their value matches the value we are looking for
+
+      //  TreeNode* ptr1=preorderTraversal((ptr->children),pos);       // we don't need to give a recursive call over here as they have no children        
+        return ptr;  //to carry out of recursive calls in case no children are there 
+
+     }else if(ptr->left==NULL && ptr->right==NULL && ptr->element!=pos){
+//this case is to check the leaves which don't have any child of their own and if their value does not matches the value we are looking for so it would return NULL
+        return NULL;
+     }
+
+    TreeNode* ptr1=preorderTraversal(ptr->left,pos);
+    if(ptr1!=NULL){return ptr1;}  //added to carry it out of all the recursive calls, because if we get our required nodes pointer so it needs to be carried out of all the recursive calls before it as there is nothing more to check for, so that is why once the above recursive statement fetches a non NULL value i.e. the pointer has been found it won't proceed to the next value it will straight away return instead of proceeding further
+
+    TreeNode* ptr2=preorderTraversal(ptr->right,pos);
+    if(ptr2!=NULL){return ptr2;}
+
+}
+
+
+
+void Tree:: PrintTree(TreeNode* ptr){
+    if(ptr==NULL){return ;}
+
+    //Preorder Printing 
+    printf("%d ", ptr->element);
+    PrintTree(ptr->left);
+    PrintTree(ptr->right);
+}
+
+
+
+void Tree:: addChild(int value){
+    TreeNode* tn= new TreeNode(value);
+    root=tn;
+}
+
+
+
+void Tree:: addChild(int value,int pos){
+    TreeNode* ptr=preorderTraversal(root, pos);   //so we will use the treeorder traversal to look for the node whose child is to be added, once we get the pointer rest is easy
+    if(ptr->left==NULL){
+        TreeNode* tn= new TreeNode(value);
+        tn->head =ptr;
+        ptr->left=tn;
+        if(ptr->left==NULL){printf("Yes\n");}
+    }
+
+
+    else if(ptr->right==NULL){
+        TreeNode* tn= new TreeNode(value);
+        tn->head=ptr;
+        ptr->right=tn;       
+    }
+    else{
+        printf("No more chidlren can be added to this node. \n");
+    }
+}
+
+
+
+int max(int a, int b){
+    if(a>b){return a;}
+    else{return b;}
+}
+
+
+
+int Tree:: depth(TreeNode* ptr){
+    if(ptr==root){return 0;}
+    return (depth(ptr->head)+1);
+}
+
+
+
+int Tree:: height(TreeNode* ptr){
+
+    int x1=0;
+    int x2=0;
+    if(ptr->left!=NULL){  //we would only proceed to check in a particular child if its not NULL
+        x1=height(ptr->left)+1;
+     } 
+
+    if(ptr->right!=NULL){
+        x1=height(ptr->right)+1;
+    } 
+
+//if none of the above statements are executed that means there is no child to add to the height, so the default value of x1 and x2 i.e. height of both branches which is 0 would be given ehre.
+    return max(x1,x2);  
+    
+
+}
+
+
+ 
+
+
+int main(){
+   
+    Tree tr;
+    printf("\n");
+    tr.addChild(20);
+    tr.addChild(10,20);
+    tr.addChild(30,20);
+    tr.addChild(60,30);
+    tr.addChild(80,30);
+    tr.addChild(90,30);
+
+    tr.PrintTree(tr.root);
+     printf("\n");
+     printf("%d\n", tr.height(tr.preorderTraversal(tr.root,30)));
+     return 0;
+
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+2) Simple Tree
+
+Simple tree are the ones in which number of children are greater than two. 
+
+Structure is same as the one specified above.
+
+CODE--
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@@@@@@@ worst case scenario binary tree search --height of tree
+
+In a balcanced tree
+h=1 N=2^1 -1
+h=2 N=2^2 -1
+.   .
+.   .
+.   .
+h=n N=2^n -1
+
+1024 then 10 is the height @@@@@@@@@@@@@
