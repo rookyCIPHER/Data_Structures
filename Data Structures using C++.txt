@@ -268,6 +268,43 @@ f)isEmpty-- Checks if the list is empty or not.
 Implementation-- If the length of linked list is 0 then the list is empty
 
 
+SOME OTHER FUNCTIONS (PRACTICE IMPLEMENTATION ON OWN) 
+
+
+h)isSorted -Checks if the linked list is sorted or not.
+Implementation--Compare each value with the value on previous node to see if it the present value is greater than that or not if it is true for all nodes then the list is sorted.
+
+i)Duplicates --Removes duplicates from the linked list.
+Implementation-- We will take two pointers make the first one point to the first node of the linked list and the second one to the immediate next pointer. Let's call these pointers p and q. p pointing to the first one and q to the enxt one. So we will check if the values of the nodes to which these pointers are pointing to are same or not. If they are not move p and q to their immediate next ones. That is p will now point to the next node of their previous node and q will point to the next node of their last node and now check again. 
+When the values match we can remvoe either of the two nodes but for practice we will remove the node to which q is pointing, and procedure of node removal is easy and has been specified before. Note while removing the node make q point to the next node of the node which is to be removed because after the node is removed this next node of old q would become the immediate next node of p,. So essentialy in each step p becomes q and q becomes next of old q.
+
+j)Reversing -- Reverses the given linked list.
+Implementation -- there are two ways to implement the reversing of the linked list. 
+First way is reversing the elements in the linked list. That is at the end of this procedure the node containing the first value of the linked list will containt the value of last node in the linked list and last node will contain the value of first node in the linked list. I.e. for example if first node has pointer 200 and last node has pointer 350. First node initially has value 2 and last node has value 8. thne at the end of procedure the 200 node will have value 8 and 350 node will have value 2. and it will happen with all the nodes. 
+So how to implement this is quite easy, first copy all the elements of the linked list in an array. Then traverse through the linked list in forward direction and in array in backward direction, copying last element in the array to the first in list and so on. 
+
+The second method is we reverse the links, i.e. suppose the linked list has pointers in the following orders 200->205->256->350, so here we won't change the value of elements in the list but what we will do instead is simply reverse the linking so that first node will automatically become the last node and the last node the first one, so at the end of this process the pointer linlking would look something like this 350->256->205->200. 
+So what is to be done to implement this? Well we will need three pointers to implement this procedure in the correct manner. Why three pointers? Well look at it in this way suppose we have only one pointer q. Then if we want to reverse the link, that is it needs to point to the previous node in the list and the only way to get the previous node is by traversing through the whole list to get the node whose next pointer points to our present node, but we can easily solve this extra traversal by bringing in another pointer r which points to the previous pointer of r. And after this process is done on the current pointer we want it to move to the next pointer, but since the modifications (that is changing of links is already done on this pointer) so we have lost the address of next pointer, so in order to keep track of next node we need the third pointer p. 
+So initially p would be the head pointer and both q and r would be NULL, and in each and every step all three slide forward together, i.e. r takes the value of q, q takes value of p, and p takes the value of next node of old p. And in each step we will make modification on node pointing to q. I.e. the node to which q points, that nodes next pointer will be made to point to its previous node which is given by q, and then once this step is completed, we will slide the pointers forward with the help of p pointer. So overall q is the currently modified node, r is the last modified node and p is the next modified node. 
+
+k)Insert  --inserting the node at any random position instead of just front or back, it will require two parameters, one the element that is to be added and the element which gives us the position of this new node, and this positional element will essentially be just the value of node ahead of which new node is to be inserted.
+Implementation --> Find the positional element and make its next pointer point to our new node, and new node's next pointer to the old next pointer of our positional node, because this new node is inserted between positional node and positional node's next node. 
+
+l)Delete --Deleting any random node.Only paramter that is required is the value of the element stored in the node.
+Implement --> All we need to do is find the node which preceeds the node which is about to be deleted. So traverse through the list until you find the node whose next pointer points to the node which is to be deleted. Then change the next pointer of this node to be equal to the next pointer of the to be deleted node, because when the node is deleted, then the next one after the deleted node will become immediate next to the preeceding node, and free the deleted node.
+
+m)Concantinating-- we join two linked list end to end , i.e. end of first is attached to head of another.
+Implementation --> Find the last node of first list and change its next pointer from NULL to the head pointer of second linked list, because head pointer will be pointing to first node of second node. It requires O(n) time because it requires traversing through one whole list.
+
+n)Merging --To understand this you need to be familiar with the merging procedure of merge sort, so please go through it. So here similar to merge sort what one need to does is that we have two merge two sorted linked lists into a single one, without making use of an extra linked list (which is different from merging of two arrays where we used an extra array)
+Implementation--> So here we only need two extra pointers (let's call them thrid and last) which will act as the pointers to the first and last node of the merged linked list. So what we will do here is that we will have the two linked lists in form of the head pointers of both of the list. SO the procedure is that compare the first elements of both of the list( that is the node to which the head pointers of both list is pointing to, so these will automatically be the first nodes) so compare the values, and the node which has smaller value make the two pointers i.e. the third and last pointer to this smaller node and disconnect this node from the original list by making its enxt pointer as null. Now the list in which we got the smaller node, move it's head pointer to the next node, because the first node which was smaller one is automatically removed from the list by making its next pointer NULL. 
+Now so far what is the situation, in the list we found the smaller first node, in that list the smaller node was removed and its head pointer was moved to the immediate next node, and the node which was removed by making its next pointer NULL now has third and last pointer pointing to it. 
+Now compare the values of the nodes which now lies on the head pointers and the next smaller value we will find will be added to the merged list and that is done by removing that node from the list by making its next pointer as NULL, move the head pointer of that list to the next one, and making the first element of the merged list to which third and last pointer were pointing to, so make this node's next pointer which was NULL should now point to this second node and move the last pointer from that node to this new node. 
+And then again compare the nodes at head pointers, remove the smaller node by making its next pointer NULL, moving the head pointer of that list to the enxt node, and adding this removed node to the merged list by making the second node of merge list to point to this new node and shifting the last pointe to this one as well 
+And keep on doing so until we have covered all the nodes, 
+
+Now if we run out of elements in the list, that is by moving the head pointer forward we encounter NULL i.e. no more nodes are left in the list then we can simply copy all the elements of the other list in the same order to our merged list and we are done.
+
 
 CODE--
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1063,6 +1100,27 @@ CODE--
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->Array 
+
+Array is another and the most basic type of data structure which is by default present in any programming language like c/c++. But let's see how the operations are implemented. Arrays is very similar to lists but are much more primitive.
 
 
 
