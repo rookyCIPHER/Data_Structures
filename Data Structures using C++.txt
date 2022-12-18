@@ -626,6 +626,8 @@ So if there is only one node in the circular linked list that means there is a h
 If the list is enpty then it is simply the head node pointing to itself/
 
 
+Using above you can now also form Doubly Circular linked list.
+
 
 
 
