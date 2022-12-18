@@ -305,6 +305,9 @@ And keep on doing so until we have covered all the nodes,
 
 Now if we run out of elements in the list, that is by moving the head pointer forward we encounter NULL i.e. no more nodes are left in the list then we can simply copy all the elements of the other list in the same order to our merged list and we are done.
 
+o)isLoop --This is used to check the linearity of the linked lists, i.e. whether the given list is linear (i.e. it terminates at a point) or does it have a loop (i.e. the last node's next pointer is not NULL, instead it points to another node which is already there in the list, i.e. it points to a previous node) 
+Implementation --> So a simple way to do this is that we keep on traversing through the list and storing the addresses of all the nodes, and if at some point we encounter an address same as one already existing then we will say it has a loop, but this uses extra space i.e. it will require probably another data structure to store the pointers probably an array. So instead a better way is with the help of two pointers and it is a very interesting and intuitive technique. To understand how it works look at this example, Say there is a race between two cars, one moves at speed of 100m/s and other at 150m/s, so if the track is straight then once we begin moving, the faster car will never meet the slower car again. Whereas if the track is circular i.e. there is a loop, and cars have to take multiple laps, then the faster train will automatically overtake the slower one again. 
+
 
 CODE--
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -482,6 +485,8 @@ So we can still see to find the second last node or essentially previous node of
 
 In a doubly linked list the previous pointer of the head node or the first node in the list is NULL because there is nothing before head node. and next pointer of last node is still NULL.
 Implementation of functions would mostly be similar just the hunt for previous node in the second last node in remove back would become easier. 
+
+NOTE--For reversing operations simply replace next and previous pointers of each node, i.e. put value of next pointer as previous pointer and vice versa,
 CODE--
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -611,6 +616,14 @@ class Linked_list{
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+4) Circular Linked List 
+
+There are two ways to represent a circular linked list 
+-Here the last node is not left as NULL, instead it points to the first node. So in circular there is no first node or last node, so tounderstand our positioning there is one main node which is pointed to via the head pointer (basically this pointer gives us an access to the circular linked list) , and this is analogusly the first node. So in this representations all the nodes are part of the circular linked list and the head pointer points to one node in the linked list and hence provides access to the list. 
+
+-The other reepresentation is that we have a head pointer which points to a head node, which in turns point to a node in the circular linked list. Which means our head node itself is not part of the circular linked list or the circular arc. It is just a node which stores no value and points to a node in the circular linked list. So we have suppose 4 nodes, out of which the second points to third, third to fourth and fourth back to second, and the first node does not contain any value it simply points to the second node. So here second, third, fourth are part of the circular arc, and the head pointer points to the first node which is a head node and points to a node in the list. So when we say there are 4 nodes in the circular linked list that means there are 4 nodes in the list and one extra node will be there which will be the head node and which is not considered while counting the nodes. 
+So if there is only one node in the circular linked list that means there is a head node which points to a node which points to itself, and this itself pointing node is the only node in the circular linked list.
+If the list is enpty then it is simply the head node pointing to itself/
 
 
 
