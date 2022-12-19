@@ -626,8 +626,6 @@ So if there is only one node in the circular linked list that means there is a h
 If the list is enpty then it is simply the head node pointing to itself/
 
 
-Using above you can now also form Doubly Circular linked list.
-
 
 
 
@@ -727,8 +725,21 @@ But when we use linked list, the os only need to look for memory to hold a node,
 
 
 Application of Stacks-
--- https://youtu.be/YJJhOhJ_ukA
--- https://youtu.be/D4SjiXxkyNw
+
+1)Paranthesis Balancing: https://youtu.be/YJJhOhJ_ukA    https://youtu.be/D4SjiXxkyNw
+
+
+2)Infix-Postfix-Prefix: Refer the PDF
+
+What is the use of Postfix or Prefix? Well look at the given expression 3+(9-6)/2^2-1, so in this expression in what order should the operations be performed in order to get the answers. Well here we make use of the BODMAS rule first the thing inside the parantheses are evaluated then the power which is 2^2 then subtraction and finally addition. As we can see in this expression we are jumping around all over the place in order to evaluate the operations in the correct order. So we need to iterate through the expression over and over again and checking for higher precedence or priority operator and first evaluate them and then moving on to others. So this quite time consuming. These type of expressions are called infix operations. So in order to avoid this we use postfix and prefix notation. And in these we don't need to worry about the precedence of the operators. We simply evaluate the operator as and when it comes in the prefix or postfix notation. Because forming a prefix or postfix notation from an infix one already takes care of the precedence thing, so when we are writing things in prefix or postfix form we have already handeled the precedence of operators while creating them so simply use the operators as and when they come. Now how are these notations created such that precedence is already handeled and how to evalate the value of these expressions? To understand this refer the pdf. 
+Note:
+In the table drawn the precedence is highlighted, higher is the value of the precedence higher is its precedence, so therefore / and * has higher precedence than + and -. 
+Now the first question that arises in one's mind is what is exactly meant by precedence? Yeah basically in layman terms it means that higher the precedence or priority, then it will be operated first in the equation. But in the fundamental way what is essentialy meant by precedence is that the compiler expects the things to be completely paranthesized (i.e. the order in which the operations will be performed is specified with the help of parantheses, where the innermost brackets are evaluated first and then we move from in to out), take this for example 
+2+3*4 so according to BODMAS criteria first multiplication would happen then addition so it would be 3*4=12 and then +2, then 2+12=14. So the same expression in paranthesized form is 
+(2+(3*4)) so here the inner most bracket is evaluated first which is 3*4 and then we will move to the outer brackets according to parantheization, so here paranthese specify the order in which it is to be evaluated according to BODMAS rule. So this is what is meant by paranthesizing an expression, and compiler expects all the expressions to be in this form. So precedence is essentially nspecifying how paranthesiastion should happen.
+In prefix and postfix this is already handeled. 
+And as we can see some operators have same precedence like + and -, so how to paranthesize expressions like 2+3-4 now in maths subtraction have higher precedence than addition but in computer science it is same. So here associativity comes into play that is all operators have associativity as to how to paranthesize same precedence operators so + and - have L-R associativity i.e. left to right which means the left most operator would be evaluated first and hence would be innermost bracket and as then the operator towards it right and then we keep on moving and the rightmost having lowest priority. Soin above expressio + will have highest priority and then -, therefore ((2+3)-4). So now this is the precedence order. 
+And therefore this is associativity. And all unary operator such as - (which is negation),!,log and so on all have R-L.
 
 
 
