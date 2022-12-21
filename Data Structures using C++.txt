@@ -772,6 +772,50 @@ Queue is same as waiting lines at stations, movie halls and all that it follows 
 
 Again a person can only join at the end of the queue(add Back only), this is called as enquing. And can only be removed from the front of the queue(remove Front), this is called as dequing.
 
+Implementation using Arrays:-
+
+Yes we know that implementation using array is not always the best option but there are some interesting concepts that we see when implementing through array so let's explore it. With the help of array you can also understand the implementation of queue size and implementation of queue isFull function.
+
+There are three methods to implement queue using an array.
+
+1) Queue using single Pointer 
+So in this we make use of a pointer which points to the last element in the array (understand what is meant by last element, suppose our array size if of 10, that means this is our max capacity of the queue i.e. no more than 10 people can stand in this, but at a given time it is not imporatant that queue is full i.e. even less than 10 people can be waiting in the queue too, 10 is simply the max capacity. SO last element will not always be at index 9, suppose there were only 5 people in the queue then the last lement would be at index 4, so this pointer will be pointing to index 4). 
+
+So one can say that the queue is full when this pointer points to index=size-1. 
+And queue is empty when this pointer points to index -1. (not 0 as that would mean the last element is at index 0, which means there is one lement in the array)
+
+Initially when there is no element in the queue then this pointer points to index -1. and as the element keep on coming it is incremented by 1. 
+
+Now enqueue function, is easy to execute, simply find the current last element with the help of pointer and verify that the queue isn't full then add the element at next index, and move the pointer to this index. 
+
+Dequing is also easy to execute, but for that we need to first remove the first element then shift all the elements one step forward. So this requires o(n) time which is unlike the enqueue one which require o(1) time. Therefore we used the enxt method.
+
+2) Queue using two pointers.
+The two pointers are f(front) and b (back), b performs the same function still it points to the last element of the array. And as the name suggest f points to the first element of the array. Now the intuition behind this thing is that suppose you are standing in the queue infront of the cart of ice cream vendor then whenever the first person in the line gets the ice cream, then all the people in the queue behind him have to move one step forward and that is what was happening in the previous method dequeue procedure. But here what we are suggesting that instead of moving the whole line forward, we simply ask the ice cream vendor to take one step forward and then he will reach the second person (which has now become the first person automatically). So here dequeue was completed in o(1) time and this ice cream vendor analogically is the f pointer in our case. 
+
+Note: f does not exactly points at the index where the first element is, it points at one index before it. I.e. if the first element is at index 0 then it points at index -1. The reason for doing so is that in this scenario the condition for queue being empty is when f = b, whereas in case where f pointer actually points to the index where there is first element then in that case empty condition will be when f=b+1, so first one is more intuitive.
+
+So enqueue procedure remains the same. 
+
+And in dequeue procedure, you simply remove the first element(which would be at index f+1, where f would be the index to which f pointer is pointing to) and move the f pointer one step forward. 
+
+And the queue is full is when b points to index=size-1. 
+
+Initially both point to index -1 then when the first element is added f stays at -1 and b moves to index 0 because now 0 is the last element. So f is not moved until an element is deleted. So f is used for deletion and b is used for insertion. 
+
+Now even though when both the procedure are completed in O(1) time, there is an issue here, think of this scenario when b is pointing to index 9 in a queue of size 10, and f has already attended to 3 person in queue that is 3 times dequeue is already completed. So at present 4th person in line is the first one i.e. at index 3. So f as of now is pointing to index 2. So according to b=9 in size 10. Queue is full, but we can see that there is no elements present at index 0 or 1 or 2. Because they were removed in dequing procedure and now this space is wasted. i.e. why there is third method of implementation. 
+
+3)Circular Queue
+
+Now here what happens is that to deal with the problem presented in previous one, what we do is that once the b has reached size-1 index and if the index 0 is empty due to dequeue procedure and f is not pointing at index 0 then we add the next element at index 0 and then b will point to 0 to utitlize the wasted space. And intuition is tha once f has attended to all the elements till index 9 then it will return to index 0 and begin again. So both f and b move in circular fashion and move from index 0 to size-1 then back to 0 and again. 
+To write mathematically, in this circular queue when a pointer has to move (i.e. b moves in insertion and f moves during deletion) it's next position would be 
+next=(current_position+1)%size            [% is for remainder]
+
+Note: We said that f should not be pointing to the position at which the element is added in circular queue, that is because we keep the index at which f is poiting empty, because it simplifies the isfull and isempty condition of the queue. When f=b then queue empty and in this case initialie both to -1 to the begining. And when b=f-1 then queue is full. Because no more element can be added because then an element would be added at the index at which f is pointing to.
+
+
+Implementation using Linked List.
+
 
 CODE--
 
@@ -838,6 +882,19 @@ int main(){
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+There are some advance level implementation of Queues too, such as 
+
+-Double ended queue (implemented with help of arrays)
+Here Fifo principle is not exactly followed we can remove from front as well as back to and then f and b pointer will move accordingly. 
+But we can have more specific D.E.queue too, which are Input restricted i.e. input can only be added from the rear that is only with help of b, but deletion is allowed from both ends
+And other way around is Output Restricted, where we can remove only from front but addition is allowed from both ends. 
+
+-2 stack implementation 
+
+Here we keep on adding the element in the first stack whenever we are enquing in the queue, when we need to dequeue, then stack 1 will give us the last element if we pop it, so what we do is that we pop all element one by one from stack 1 and push them in stack 2, so in this way the first element of the queue comes to top os stack 2 and then we simply pop from there, and until stack 2 is empty whenever dequeue is needed we pop from stack 2 and in enqueue we push to stack 1. And when stack 2 is empty and we again want to dequeue again put all elements of stsack 1 in stack 2 in reverse order and so on.
+
+Application of Queue.
+-Priority Queues. (Refer PDF)
 
 
 
