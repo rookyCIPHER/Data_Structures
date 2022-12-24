@@ -894,7 +894,7 @@ And other way around is Output Restricted, where we can remove only from front b
 Here we keep on adding the element in the first stack whenever we are enquing in the queue, when we need to dequeue, then stack 1 will give us the last element if we pop it, so what we do is that we pop all element one by one from stack 1 and push them in stack 2, so in this way the first element of the queue comes to top os stack 2 and then we simply pop from there, and until stack 2 is empty whenever dequeue is needed we pop from stack 2 and in enqueue we push to stack 1. And when stack 2 is empty and we again want to dequeue again put all elements of stsack 1 in stack 2 in reverse order and so on.
 
 Application of Queue.
--Priority Queues. (Refer PDF)
+-Priority Queues. 
 
 
 
@@ -1175,15 +1175,57 @@ CODE--
 
 
 
+3)Binary Search Trees
+
+--https://youtu.be/urjdpW0RfKg
+--https://youtu.be/eteSlnmGaDk
+--https://youtu.be/FiFeR1JzFD0
+
+These are special type of binary trees, that is each node have two children. But with a constraint i.e. the left child would be smaller than the parent node and the right child would be greater than the parent node, infact all the trees in the right subtree would be greater than this one and all nodes in left subtree would be smaller. Therfore the left child of right child of parent node would be smaller than the right child of parent node, but it would still be greater than parent node because it is part of the right subtree.
+
+Now some important features of BST-
+
+-Given a list of n elements, and we need to construct BST out of this. So for a BST with n nodes, there are total catalan number of BST possible.
+
+-Inorder traversal of the BST always give all the elements of the tree in sorted order (which is also right intuitively as in inorder traversal the leftmost node comes first and right most comes last while traversing, and in BST leftmost element would obviously the smallest by properties of BST and rightone is the largest).
+
+-We know that it generally requires either inorder and preorder or inorder and postorder traversal to construct a tree. However for BST we only need preorder or postorder and its enough to construct BST because in BST inorder is already indirectly implied as it is simply the sorted order.
+
+-Given a BST and we need to insert a new node then it can simply be done by finding the location where it should have been in the BST, i.e. we will begin going through the tree and will eventaully end up at left or right child of one of the leaves and it can't move any further because it would be NULL. So actually this is the position where the NODE should have been because in iterating through the tree in correct order (i.e. if we are searching for a key in a the BST, then comparing the key value with the value of each node, if our key value is smaller then we further move to compare it with left child because anyway all on right subtree would be greater than parent node so anyway no use comparing on that side and so one we go on comparing) we reached here, therefore we will simply create a node and add it at this position.
+
+-For deleting a node we need to find the correct node, which already exists in the tree to replace it such that porperties of BST are still held. So how to find the correct node, so property of BST is that all nodes to the right of a node should be greater than it and all nodes to the left should be smaller. So the best way is to keep replace a node is that to replace the node which is either smallest number greater than the node to be deleted (this can be found by taking the first step as right and then keep on going to left till there is no further left child to go to, so this node that we would find would be the leftmost node of the right subtree which would be the smallest element which is larger than the node to be deleted) or greatest number smaller than the node to be deleted (first step left then all steps to the right until we reach a point where we can't further move to a right child i.e. there is no right child) in the BST to still hold the properties of BST.
+
+Now note that if the node that is replacing the deleted node is a leaf node then obviously there is no issue. However it might happen that this node that is replacing is not a leaf node(it may happen as suppose we are replacing with the largest element smaller than the delted node then we will keep on going until we reach a node which does not have a further right node to move to and this might happen either when this node is leaf or if it only have a right child, so in second case it is not a leaf node) so in this case the node which is replacing this should also be replaced by another node. So it would be a recursive approach.
+
+Note: How to choose which of the two nodes is used to be replace our node, well decide on the basis of which requires less stps and in which only less replacements needs to be made.
+
+-How to create a BST given a list of numbers? Place the first element in the list as root node then move to the next element, if it smaller than the first one place it as the left child or else as the right child as so on. Now think this, when a child of left or right child needs to be inserted then if it is being inserted as the right child of left child. then it shouldn't only be greater than the left child but it should be smaller than the parent of left child because it is part of the left subtree so before inserting each node it is not only to be compared with its parent but also with its parent parent to find its correct position and with all its ancestors for that matter. Whereas left child of left child is not an issue, because left child of left child is smaller than the left child of parent node, and left child of parent itself was smaller than parent so left child's left child would also be smaller. Problem only comes in right child of left child and left child of right child. 
+
+So to deal with this we follow the following algorithm:-
+-|We need a pointer p which points to the node on which we are currently working on.
+-|So go to the first element of the array and create it as the root node of the BST and make p point to it.
+-|Now the above was the initial step, now let's move to the repeating steps:-
+---|We move on to the next element in the array and create a new node with it.
+---|Now we compare this newly created node to our previous node, the one to which p was pointing to:-
+----|if the value is smaller then we add this new node as left child of previous node to which p was pointing to, push the address of node to which p was pointing to, into the stack. And
+     make p point to this new node.
+----|else the value is bigger then we don't directly place it as the right child. We first also compare it with top element of the stack (which is the ancestor which can hel[p us determine    
+     the correct position of this node (if the stack is empty then we assume the top most element is infinity i.e. the largest number possible) note just compare the value with the top        
+     of stack just don't pop it out of the stack yet:-
+--------|if the value of our new node is between our previos node (the one to which p was pointing to) and the top element of the stack, then we add this node as right child of p, move p
+         to this new node and WE DO NOT PUSH PREVIOUS NODE INTO THE STACK. (WE ONLY PUSH WHEN WE ARE ADDING LEFT CHILD TO A NODE, because it is only when left child is added that we may 
+         face the issue, but once we have gotten a righ child the previous one won't matter because this right child is bigger than previous one and can handle upcoming numbers better).
+         And we move on to the next element of the index.
+         NOTE: WE STILL HADN'T POPPED THE TOP ELEMENT OF THE STACK WE ARE SIMPLY COMPARING IT WITH THE TOP ELEMENT OF THE STACK WITHOUT POPPING IT.
+--------| else that is when the value of our current node is even bigger than the top element of the stack, then we pop the top element of the stack, make p point to this popped element 
+          and now compare this p value with our newly created node, by reapeating above four conditional statemenets again. 
+          NOTE: We do not move to the next element in the array until we have inserted previous one as either a left or right child.
+
+-|Keep on repeating these steps until we have reached the end of the array. 
 
 
 
-
-
-
-
-
-
+-Some disadvantages of BST, we cannot control the height of a BST. Because if we follow the above algorithm for creating a tree out of a sorted array, we will get a skewed tree which have the maximum possible height for the given number of nodes. ANd we know the smaller the heigh the easier it is to traverse it. Therefore we use AVL Trees for controlling the heights. 
 
 
 
