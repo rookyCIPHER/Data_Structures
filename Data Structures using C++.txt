@@ -1231,7 +1231,42 @@ So to deal with this we follow the following algorithm:-
 
 
 
+4)AVL Trees 
 
+Their properties are same as BST, i.e. left child smaller and right child greater. But two new factors are added that each node now has height as its property along with data and children and parent pointers. But along with that there is also something known as balance factor, which helps in determining whether each node is balanced or not. A node is said to be balanced if it has a balance factor of 1,0,-1. If it is greater than 1 or less than -1 then it is said to not be balanced. But in AVL trees balanced factor cannot go beyond 2 or -2 (we will understand this why in generation of Avl trees). Refer the pdf. 
+
+And the process of balancing an unbalanced node is called rotation. There are multiple type of rotations for insertion as well as deletion of nodes, but essentially they are all different names for four rotations.  and we will see each and every one of them in detail.
+
+Note to understand initially we will understand with the help of three nodes and then we can extend it to more nodes, because at any point in time no matter how many nodes are there in the trees, rotation is only done on three nodes. Will see this soon.
+
+-So first type of imbalance that a node can be in is LL imbalance. Which means a node becomes imbalance when a node is inserted on left child of left child. So in this case how rotation is done that is shown in the figure. The rotation is done by pivoting at the top node. This rotation is called LL rotation. And also note that numbers denoting on top are balance factors. I know there would be other nodes and childrens but for sake of understanding simply assume those are the balance factors. 
+
+-Then there is RR imbalance. Where a node becomes imbalanced because of insertion of a node as the right child of right child of the node. How rotation is to be done is specified in the pdf. This rotation is called RR rotation. The rotation is done by pivoting at top node (meaning a finger is put on that spot and thread containing three beads or nodes is rotated about that point in the direction specified, till second node comes to its place.) 
+
+-Then there is LR imbalance. That is a node becomes imbalanced because of insertion of a node as right child of the left child of the node. So here double rotations are done as part of this one whole rotation. First we rotate the bottom two nodes, pivoted at the middle one, towards L (left) and then all three nodes, pivoted at the top node, towards right (R).
+
+-Then there is RL imabalance and we can easily guess what happens here. 
+
+LR and RL rotations are double rotations that is they include two rotational steps in them. Whereas as RR and LL are single rotations.
+
+Note when a node has a positive balancing factor then the imbalance is on left side and when it is negative then it is on right side imbalance. I.e. why in LR imbalance, the main node has +2 bf which means its left imabalanced and middle node has -1 which is right imbalanced (yeah I know -1 is not imbalance but just get the intuition) and we know it is true because overall tree is imbalanced due to right child of the left child in LR imbalance and that is seen quite clearly by bf of nodes. 
+
+
+Now what happens to other nodes that is children of the three nodes that are being rotated, because they are obviously changed because if the middle node had a child then it would definetly no longer be the children of the middle node after the rotation in LL one, because top node becomes the right child of middle node and lower node becomes the left child so obviously children's would be rotated in some way or other to maintain balance. 
+
+So refer the first black board slide. The thing written on black board shows how all nodes look like after rotation is done. And the colourful one show what is the intuition behind it, so the inuition behind it is that the blue thread with orange beads move in the direction of rotation. The green linked children experience the rotation in same way and are not affected much. However the purple linked children experience breaking of link and experience the torque in direction of rotation making it move to its new position. 
+
+Similar thing can be observed in LR rotation in the two rotations in the seond black board slide. RR and RL are similar and one can do them on their own.
+
+Then the middle slide of the two black board slide show what happens with multiple nodes i.e. these three nodes are just not the only three nodes and their children but more than them. So we are taking an example of LL rest can approached in a similar way. So we know rotation is done on three nodes, so which three nodes should be chosen to rotate here, so first of all write the balance factor or bf of all the nodes, go to the node which have a unbalanced bf i.e. bf of +2 or -2. This is our first node of the three nodes, then if it has +ve bf then we move to its left child (as +ve bf implies left imbalance) and if it has -ve then we go to its right child, one of these would be our second node and then look at the sign of this second node and go to its child accordingly this would be our third node and these three are rotated. And if we get Left child in both cases then we know the imabalance would be LL so we would do LL rotation and so on accordinlgy others.
+In our example node containing value 4 was inserted, and a confusion may arise that everytime a new node is inserted (process of inserting a node in AVL is same as BST only thing that happens is that we also need to check for balancing once the node is inserted) it would be inserted as a leaf node, which is also the case here but when we are making our rotation, the three nodes does not include the inserted node, well that is true but it was never mentioned that it should be included in rotation anyway, so that is not an issue. Another thing is that imbalance is created due to insetion of new node as the left child of left child of left child of left child of our root node. So it should have been LLLL imbalance. No we only consider three nodes according to above mentioned procedure and rest of the things are automaticaly handeled, as one can see this LLLL suggests it should have been similar to an LL rotation and that is what we got when we followed our bf node selection method. 
+
+Now how to code for all these rotations. Well we know once we have our three nodes how the linking of each of its children will change so we just need to change these linkings in the code, i.e.suppose in LL rotation, A's right child will remain its right child and B's right child becomes A's left child, and C remains as B's left child but A becomes B's right child and no changes on C's children. So these are the linkings that we will change. And how to detect which rotation is to be done well that is explained above and code is in the pdf  
+
+So this is for inserting a node, what is to be done when we need to generate an AVL tree from a given list of numbers, then the generation procedure is exactly same as BST by the stack method. But note every time a new node is inserted we need a bf check function which traverse all the nodes of trees and calculate their bf and return the pointer to the node which is imbalanced. Note: there may be multiple imbalanced nodes, so this check function needs to check recursively. And because we balance the tree after insertion of each node, the bf never become greater than 2 or less than -2.  
+
+For deletion of nodes same four rotation are given differnet names, 
+we get left imbalanced trees when we remove right child (because obviously when a node is removed is removed from right then it will become heavy on left and vice versa), so we look at the first imbalanced node check if its left or right imbalanced, according to the sign of its bf. and that gives us the first letter of the rotation and then the bf of its corresponding node (ie. the left child if the bf of previous was +ve and vice versa) and then we get a familiar situation then we perform our four rotations just with these nw names. Note in L0 rotation we can perform either of L1 or L-1 rotation.
 
 
 
