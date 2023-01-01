@@ -1284,7 +1284,15 @@ Array is another and the most basic type of data structure which is by default p
 
 
 
+-->Graphs-Refer the pdf
 
+
+
+-->Hashing-Refer the pdf
+
+
+
+-->Matrices-Refer the pdf
 
 
 
