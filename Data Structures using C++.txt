@@ -1285,6 +1285,7 @@ Array is another and the most basic type of data structure which is by default p
 
 
 -->Graphs-Refer the pdf
+It also covers a sub data structure in itself known as the disjoint subsets
 
 
 
