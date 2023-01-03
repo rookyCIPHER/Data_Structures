@@ -1284,8 +1284,35 @@ Array is another and the most basic type of data structure which is by default p
 
 
 
+
+
+
+
+
+
+
 -->Graphs-Refer the pdf
-It also covers a sub data structure in itself known as the disjoint subsets
+It also covers a sub data structure in itself known as the disjoint subsets.
+
+
+In Prim's algorithm-The t array contains two rows and n-1 number of columns, (where n is number of vertices, and since this is a tree this has n-1 edges so this array maintains track of the edges in matrix) so column 0 contains the first edge and column 1 contains second edge and so on. And row 0 and 1 contains the vertices on the either side of our edge. 
+
+The near array starts from index 1 and we ignore index 0, as our vertices are labeled as 1,2,3... So after chosing our first edge we get two corresponding vertices, we mark them as 0 then we go to all the other vertices and with the help of adjacency matrix check what is the weight of the edge between the vertex we are as of now and our two vertices, and out of the edge which has smaller weight will be nearer to that vertex so we put that vertex number in that index in the near array, and if no edge then weight is infinity, and if oth have equal weight we can choose either one. Initially all values in initial arrray are -1. Now once we have marked all vertices with their nearest vertices then we calculate the weight of edges with their nearest vertex and then we calculate the next shortest edge amongst them (and that is the next edge in t matrix) and then we get our next vertex to be marked as 0 in the nearest array. And then we calculate near vertices wrt all 0 marked vertices (but note we don't calculate the weight of 0 marked vertex with 0 one again, so while comparing other ones ignore 0 marked ones, this is the way to ensure no cyucles)
+
+And so we keep on doing this untill all vertices in near array are 0 marked.
+This algorithm gives only the spanning tree of one of the components, if there are multiple disconnected components. 
+
+
+In Kruskal (we label all vertices from 1 to n, and similar also edges are also label from 0 to e(total number of edges). So their corresponding index in any array is their label. Therefore includeness of edge 4 would be given by index 4 of include array, and information about its veritces would be given by column 4 of our 3 row matrix)
+
+Our 3 row matrix has 1 row as first vertex of edge, second row is second vertex of edge and last row is the weight of the edge formed by above two vertices. And t matrix is made to keep track of the edges that makes in the soanning tree. The "included array" keep tracks of all the edges that are used once each edge is included that corresponding index is marked as 1 for showing that its included. And we use disjoint subset data structure to ensure no cycles. Initially 3 row matrix contains data about vartices and edges and weights, the t matrix is empty, include array is all 0s. 
+So steps are find the smallest weight edge from 3 row matrix, check if this edge is already included or not (from the include array, i.e. check if it's corresponding index has been marked as 0 or 1, if its 0 then its not included and we can now proceed further, if its 1 then that means its included and we proceed to finding the next shortest), if not included then we go to its corresponding vertices and check whether these vertices forms cycle (if we include this edge in the tree) by going to their corresponding index in disjoint subset and by doing collapsing find, we check if they have same parent or not (if they do then they will have same parent and will form cycle, therefore then this edge is not included and we move to next shortest edge), if cycle is not formed then we decide to include this edge in our tree. I.e. done by marking the corresponding index of the edge as 1 in the include array and adding the vertices of this edge in t matrix at next position. We also do union of these two vertices in disjoint subset data structure to show that now parent relationship is altered (as now one of this vertex will become parent of other).
+These are the set of steps which keep on getting repeated until all the columns of our t matrix are filled, which means we will have n-1 edges without any cycles in a n vertex graph which by properties of graph will ensure that we get a tree.
+
+Kruskal Algorithm also gives multiple spanning tree in disconnected components, which is that it will give a tree for each disconnected component due to working of the algorithm.
+
+
+
 
 
 
